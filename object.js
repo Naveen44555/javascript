@@ -7,8 +7,9 @@
 // console.log(person)
 
 
-var person=new Object()
-person.name="ravi"
-person.weight=33
-person.lang="eng"
-console.log(person)
+// var person=new Object()
+// person.name="ravi"
+// person.weight=33
+// person.lang="eng"
+// console.log(person)
+

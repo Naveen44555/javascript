@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>one is one</h1>
+    <!-- <h1>two is two</h1> -->
+    <button onclick="clickme()">click</button>
+    <p>hello every one</p>
+    <p>good morning</p>
+    <p>thank you</p>
+     <button onclick="color()">click</button>
+       <h4 id="title"> This is title tag</h4>
+         <button onclick="title_click()">title</button>
+    <h5>what is query selector</h5>
+    <button onclick="query()">query</button>
+
+    <h3 class="twin">twinkle twinkle</h3>
+    <button onclick="twinkle()">change</button><br>
+    <br>
+
+    <!-- set attribute -->
+     <input type="text" name="" id="name">
+     <button onclick="plcae_holder()">Place holder</button>
+
+         <div class="divtag">This is div tag</div>
+         <button onclick="div()">div</button>
+    <script>
+        // var a=document.querySelector("h1")
+        function clickme(){
+        let h1=document.querySelector("h1")
+        h1.innerText="welcome To javascript DOM";
+        h1.style.color="blue"
+        }
+
+        // 2
+        function color(){
+        var a=document.querySelector("p");
+        a.style.color="red"
+        }
+
+        // 3
+        function title_click(){
+        var bb=document.querySelector("#title")
+        bb.style.fontSize="30px"
+        }
+
+        // 4
+        function color(){
+            var a=document.querySelectorAll("p")
+            a.forEach(element => {
+            element.style.color="green"
+            element.style.border="red 2px dotted"
+        });
+        }
+
+        function query(){
+            let name=document.querySelector("h5")
+            name.innerText="→ It is used to select the first element in the HTML document that matches a given CSS selector."
+            name.style.color="purple"
+            name.style.fontSize="30px"
+        }
+
+    function twinkle(){
+        var rhymes = document.getElementsByClassName("twin")[0]
+        rhymes.setAttribute("id","sky")
+        var skyset = document.querySelector("#sky")
+        skyset.style.color="green"
+    }
+
+    function plcae_holder(){
+        var inp = document.querySelector("#name")
+        inp.setAttribute("placeholder","enter your name")
+    }
+
+    function div(){
+        var c=document.getElementsByClassName("divtag")[0]
+        c.style.color="red";
+        c.style.fontSize="30px"
+    }
+
+    </script>
+</body>
+</html>

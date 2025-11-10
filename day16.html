@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>hiii</h1>
+    <div>
+        <p>hello everyone</p>
+        <button>click here</button><br>
+        <h1 id="one">Good morning</h1>
+
+        <h3>Johny Jhony </h3>
+        <h3>yes papa</h3>
+        <h3>styuing mean</h3>
+        <h3>yes papa</h3>
+        <button onclick="changecolor()">click</button>
+ 
+        <p name="fast">hii sundra</p>
+        <h4 name="fast">hello sundari</h4>
+        <p name="fast">how are you</p>
+        <h4 name="fast">Iam good</h4>
+
+        <!--  -->
+        <p class="slow">iam going</p>
+        <h5 class="slow">ok we meet tomorrow</h5>
+        <button onclick="change()">change here</button>
+    </div>
+
+    <script>
+        document.write("color") 
+        var greeting = document.getElementById('one')  //single string & paranthesis
+        greeting.style.color="red"
+        greeting.style.backgroundColor="yellow"
+
+        greeting.textContent="bye good Afternoon"   // not works because it textcontent
+        greeting.innerHTML="<u> <i>bye good Afternoon </u> </i>"   // it works because it innerHTML
+        // greeting.innerText="<u> <i>bye good Afternoon </u> </i>"   // it not works because it innetext
+
+       var rhymes=document.getElementsByTagName('h3')
+       function changecolor(){
+        rhymes[0].style.color="yellow"
+        rhymes[1].style.color="yellow"
+        rhymes[2].style.color="yellow"
+        rhymes[3].style.color="yellow"
+
+        rhymes[0].style.backgroundColor="purple"
+        rhymes[1].style.backgroundColor="purple"
+        rhymes[2].style.backgroundColor="purple"
+        rhymes[3].style.backgroundColor="purple"
+       }
+    for(i=0; i<rhymes.length;i++){
+        rhymes[i].style.color="red"
+    }
+
+
+    // ---------document.getElementsByName
+    var faster=document.getElementsByName('fast')
+    function change(){
+        // faster[0].style.fontsize="40px";
+        for(i=0; i<faster.length; i++){
+            faster[i].style.fontSize="40px"
+        }
+    }
+
+    // document.getElementsByClass()
+
+    document.getElementsByClassName('slow')[0].style.color='blue'
+    document.getElementsByClassName('slow')[0].style.backgroundColor='red'
+    </script>
+</body>
+</html>

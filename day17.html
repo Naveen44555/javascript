@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 id="h1">first</h1>
+     <button onclick="change()">change</button>
+    <p>one is one</p>
+    <button onclick="color()">color</button>
+
+     <p id="title">two is </p>
+     <p id="title">three is 3</p>
+    <!-- <button onclick="size()">size</button> -->
+    <button onclick="border()">border</button>
+
+    <script>
+        function change(){
+     document.getElementById("h1").innerText = "Welcome to JavaScript DOM!";
+        }
+
+        function color(){
+            var a= document.querySelector("p")
+            a.style.color="blue"
+        }
+        function size(){
+            var c=document.querySelector("#title")
+            c.style.fontSize="30px";
+        }
+
+        function size(){
+          var ele2=document.querySelectorAll('p')
+          ele2.forEach((elements)=>{
+            elements.style.color="green"
+          })
+        }
+        function border(){
+            var ele3=document.querySelectorAll("p")
+            ele3.forEach((element)=>{
+            element.style.border="2px solid red"
+        })
+    }
+    </script>
+
+</body>
+</html>

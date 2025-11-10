@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>hiii</p>
+    <div>
+        <p>hello</p>
+        <h2>good</h2>
+    </div>
+    <h3 id="one">Good morning</h3>
+    <button onclick="greetings()">click</button><br> 
+
+    <h4>johny johny</h4>
+    <h4>yes papa</h4>
+    <h4>eating sugar</h4>
+    <h4>no papa</h4>
+     <button onclick="changecolor()">click</button><br>  
+<p name="fast">sundra said</p>
+<h5 name="fast">sundri reply</h5>
+<p name="fast">with her friend</p>
+<h5 name="fast">ok sundaru</h5>
+<button onclick="names()">Change Size</button>
+
+<h6 class="slow">nice to meet you</h6>
+<h6 class="slow">thanks</h6>
+<button onclick="change()">change</button>
+
+    <script>
+        // document.write
+        document.write("hello")
+
+        // document.getElementById
+        var greetings = document.getElementById('one')
+        greetings.style.color="blue"  
+        greetings.style.backgroundColor="yellow"  
+        greetings.textContent="bye good evening"
+        greetings.innerHTML="<u> <i>bye good Afternoon </u> </i>" 
+        
+        // document.getElementTagname
+     var rhymes = document.getElementsByTagName('h4'); // now selects <h4>
+// function changecolor() {
+//     rhymes[0].style.color = "green"; // changes first <h4> color
+//     rhymes[0].style.backgroundColor="red"
+//     rhymes[1].style.color = "green"; // changes first <h4> color
+//     rhymes[1].style.backgroundColor="red"
+//     rhymes[2].style.color = "green"; // changes first <h4> color
+//     rhymes[2].style.backgroundColor="red"
+//     rhymes[3].style.color = "green"; // changes first <h4> color
+//     rhymes[3].style.backgroundColor="red"
+//     }
+        function changecolor() {
+            for (i=0;i<rhymes.length;i++){
+                rhymes[i].style.color="yellow"
+                rhymes[i].style.backgroundColor="green"
+            }
+        }
+
+        // 4.document.getElementByName()
+        var faster=document.getElementsByName('fast');
+        function names(){
+            for (var i=0;i<faster.length;i++){
+               faster[i].style.fontSize="40px"
+        }
+       }
+
+   var slowdown=document.getElementsByClassName('slow')
+   function change(){
+   for (i=0;i<slowdown.length;i++){
+    slowdown[0].style.fontSize="40px"
+   }
+}
+    </script>
+</body>
+</html>

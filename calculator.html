@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Attractive 3D Calculator</title>
+
+    <style>
+        /* ---------------------- BACKGROUND ANIMATION ---------------------- */
+        body{
+            margin-top: 70px;
+            text-align: center;
+            transition: background 1s ease-in-out;
+            overflow: hidden;
+        }
+
+        /* Light Mode Colors */
+        .light-bg{
+            background: linear-gradient(-45deg, #ffecd2, #fcb69f, #ff9a9e, #fad0c4);
+            background-size: 400% 400%;
+            animation: bgMove 10s ease infinite;
+        }
+
+        /* Dark Mode Colors */
+        .dark-bg{
+            background: linear-gradient(-45deg, #1a2a6c, #b21f1f, #000000, #0f0f0f);
+            background-size: 400% 400%;
+            animation: bgMove 10s ease infinite;
+        }
+
+        @keyframes bgMove {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* ---------------------- TOGGLE BUTTON ---------------------- */
+        .modeBtn{
+            padding: 12px 25px;
+            font-size: 18px;
+            border: none;
+            border-radius: 10px;
+            background: #ffffff;
+            color: #222;
+            cursor: pointer;
+            box-shadow: 0 5px 10px rgba(0,0,0,0.3);
+            transition: 0.3s;
+               width: 100px;
+        }
+        .modeBtn:hover{
+            transform: scale(1.1);
+         
+        }
+
+        /* ---------------------- CALCULATOR BOX ---------------------- */
+        .calculator{
+            height: 450px;
+            width: 350px;
+            border-radius: 18px;
+            border: 3px solid #333;
+            margin: auto;
+            padding: 10px;
+            background: rgba(255,255,255,0.95);
+            box-shadow: 0px 8px 25px rgba(0,0,0,0.4);
+        }
+
+        /* ---------------------- DISPLAY ---------------------- */
+        .form_class{
+            width: 260px;
+            height: 60px;
+            font-size: 32px;
+            font-weight: bold;
+            border-radius: 12px;
+            border: 2px solid #333;
+            padding-left: 10px;
+            background: #f7f7f7;
+        }
+
+        /* ---------------------- 3D BUTTONS ---------------------- */
+        button{
+            width: 70px;
+            height: 60px;
+            margin: 3px;
+            font-size: 25px;
+            border: none;
+            border-radius: 12px;
+            cursor: pointer;
+            color: #222;
+
+            /* 3D Effect */
+            background: linear-gradient(to bottom, #0ec804a0, #06d15b);
+            box-shadow: 0px 6px 0px #17bb01;
+            transition: 0.15s;
+        }
+
+        button:active{
+            transform: translateY(6px);
+            box-shadow: 0px 0px 0px #b8860b;
+        }
+
+        /* Number button cool color */
+        #color{
+            background: linear-gradient(to bottom, #a102f0, #0984e3);
+            box-shadow: 0px 6px 0px #b004ef;
+            color: white;
+        }
+        #color:active{
+            transform: translateY(6px);
+            box-shadow: 0px 0px 0px #8005b8;
+        }
+
+        /* = Button color */
+        #color2{
+            background: linear-gradient(to bottom, #ff7675, #d63031);
+            box-shadow: 0px 6px 0px #a31616;
+            color: white;
+        }
+        #color2:active{
+            transform: translateY(6px);
+            box-shadow: 0px 0px 0px #a31616;
+        }
+
+        h1{
+            color: white;
+            /* text-shadow: 2px 2px 5px black; */
+            color: rgb(240, 5, 5);
+        }
+    </style>
+</head>
+
+<body class="light-bg">
+
+    <!-- TOGGLE BUTTON -->
+    <button class="modeBtn" onclick="toggleMode()">Dark</button>
+
+    <h1 >CALCULATOR</h1>
+
+    <!-- CALCULATOR -->
+    <table class="calculator">
+         <tr>
+            <td colspan="3">
+                <input type="text" class="form_class" id="result" disabled>
+            </td>
+            <td><button onclick="clearscreen()">AC</button></td>
+         </tr>
+
+         <tr>
+            <td><button onclick="display(1)" id="color">1</button></td>
+            <td><button onclick="display(2)" id="color">2</button></td>
+            <td><button onclick="display(3)" id="color">3</button></td>
+            <td><button onclick="display('+')">+</button></td>
+         </tr>
+
+         <tr>
+            <td><button onclick="display(4)" id="color">4</button></td>
+            <td><button onclick="display(5)" id="color">5</button></td>
+            <td><button onclick="display(6)" id="color">6</button></td>
+            <td><button onclick="display('-')">-</button></td>
+         </tr>
+
+         <tr>
+            <td><button onclick="display(7)" id="color">7</button></td>
+            <td><button onclick="display(8)" id="color">8</button></td>
+            <td><button onclick="display(9)" id="color">9</button></td>
+            <td><button onclick="display('*')">*</button></td>
+         </tr>
+
+         <tr>
+            <td><button onclick="display('.')">.</button></td>
+            <td><button onclick="display(0)" id="color">0</button></td>
+            <td><button onclick="display('/')">/</button></td>
+            <td><button onclick="Calculation()" id="color2">=</button></td>
+         </tr>
+    </table>
+
+    <script>
+        function display(value){
+            document.getElementById('result').value += value;
+        }
+
+        function clearscreen(){
+            document.getElementById('result').value = "";
+        }
+
+        function Calculation(){
+            let res = document.getElementById('result').value;
+            try {
+                document.getElementById('result').value = eval(res);
+            } catch {
+                document.getElementById('result').value = "Error";
+            }
+        }
+
+        /* ---------------------- DARK / LIGHT MODE SWITCH ---------------------- */
+        function toggleMode(){
+            document.body.classList.toggle("dark-bg");
+            document.body.classList.toggle("light-bg");
+        }
+    </script>
+
+</body>
+</html>

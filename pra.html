@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Car Move</title>
+    <style>
+        body {
+            text-align: center;
+            background-color: rgb(177, 145, 177);
+            font-family: Arial, sans-serif;
+        }
+
+        h1 {
+            margin-top: 20px;
+        }
+
+        .road {
+            width: 90%;
+            height: 150px;
+            background-color: black;
+            margin: 20px auto;
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+        }
+
+        #vehicle {
+            position: absolute;
+            top: 35px;
+            left: 0;
+            width: 100px;
+            transition: transform 0.1s linear;
+        }
+
+        .buttons {
+            margin-top: 20px;
+        }
+        button {
+            padding: 8px 16px;
+            margin: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>Harvester Move</h1>
+    <p>Click the buttons to start or stop the vehicle.</p>
+
+    <div class="road">
+        <img id="vehicle" src="./harvester.webp" alt="vehicle">
+    </div>
+
+    <div class="buttons">
+        <button onclick="startCar()">Start vehicle</button>
+        <button onclick="stopCar()">Stop vehicle</button>
+    </div>
+
+    <script>
+        let vehicle = document.getElementById("vehicle");
+        let position = 0;
+        let moveInterval;
+        let isMoving = false;
+
+        function startCar() {
+            if (isMoving) return; // prevent multiple intervals
+            isMoving = true;
+
+            vehicle.src = "harvester.webp"; // switch to car image
+            moveInterval = setInterval(() => {
+                position += 5;
+                if (position > window.innerWidth - 150) position = 0;
+                vehicle.style.left = position + "px";
+            }, 50);
+        }
+
+        function stopCar() {
+            clearInterval(moveInterval);
+            isMoving = false;
+            vehicle.src = "harvester.webp"; // switch to lorry image
+        }
+    </script>
+</body>
+</html>

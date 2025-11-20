@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="btn"onclick="changetext()" >click</button>
+    <p id="show"> </p>
+
+<!--  -->
+   <div class="box"  style="width: 120px;height: 120px; background-color: red; transition: 0.1s;"></div><br>
+   <div class="box"  style="width: 120px;height: 120px; background-color: red; transition: 0.1s;"></div> <br>
+   <div class="box"  style="width: 120px;height: 120px; background-color: red; transition: 0.1s;"></div>
+<br>
+   <!--  -->
+   <form onfocusin="back()">
+    <input type="text">
+    <input type="text">
+    <input type="text">
+</form>
+
+    <form >
+        <input type="text" id="name" placeholder="name">
+        <input type="text" id="email" placeholder="email">
+        <input type="text" id="age" placeholder="age">
+    </form>
+    <div id="msg"></div>
+
+    
+
+    <script>
+        // 1
+        function changetext(){
+            var a=document.getElementById("btn")
+            var msg=document.getElementById("show")
+            if(a.innerText==="click"){
+                a.innerText="clicked me"
+                msg.innerText="hii how are you"
+            }
+            else{
+                a.innerText="click"
+                msg.innerText=""
+            }
+        }
+
+        //2 
+        var boxes=document.getElementsByClassName("box");
+        for(let i=0; i< boxes.length;i++){
+        boxes[i].onmouseover=function(){
+            boxes[i].style.width="200px";
+            boxes[i].style.height="200px";
+            boxes[i].style.backgroundColor="blue"
+        }
+        boxes[i].onmouseout= function(){
+             boxes[i].style.width = "120px";
+             boxes[i].style.height = "120px";
+             boxes[i].style.backgroundColor = "skyblue";
+        }
+    }
+
+    //3 
+   function back(){
+    let cc = document.getElementsByTagName("input");
+    for (let i = 0; i < cc.length; i++) {
+        cc[i].style.backgroundColor = "green";
+    }
+}
+    // 4
+    const form=
+
+    
+
+
+
+
+    </script>
+    
+</body>
+</html>

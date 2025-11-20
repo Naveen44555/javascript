@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background-color: rgb(4, 246, 246);
+            display: flex;
+            flex-wrap: wrap;
+            width: 150vh;
+        }
+        #hii{
+            background-color: rgb(245, 249, 2);
+            width: 300px;
+            height: 300px;
+            border: 2px red solid;
+            border-radius: 10px;
+            display: inline-block;
+            justify-content: center;
+            align-items: center;
+        }
+        #one{
+            width: 330px;
+            height: 80px;
+
+               /* border: 2px red solid; */
+        }
+        button{
+            background-color: rgb(0, 255, 51); 
+             margin-left: 120px;
+             margin-top: 100px;
+        }
+        /* button:hover{
+            background-color: rgb(218, 38, 38);
+            color: white;
+            width: 100px;
+            height: 30px;
+        } */
+
+    </style>
+</head>
+<body onload="loadhere()">
+    <div id="hii">
+    <h1 id="one">click button to see something</h1>
+    <button onclick="on()">onclick</button>
+    </div>
+
+    <!-- onmouseover -->
+      <div id="hii">
+    <button onmouseover="fun_name()">onmouseover</button>
+     </div>
+
+      <div id="hii">
+        <button onmouseout="gun_name()">onmouseout</button>
+      </div>
+
+        <form>
+            <input type="text" onfocus="styling()"> 
+        </form> <br>
+    
+        <form onsubmit="sub()">
+            <input type="text">
+            <button>submit</button>
+           
+        <input type="text" onchange="tent(this.value)" placeholder="type something">
+              
+
+        <select name="" id="">
+            <option>FOOD blog</option>
+            <option>Travelling</option>
+            <option>marketing</option>
+            <option>business</option>
+        </select>
+
+        <input type="text" >
+          </form>
+     
+      
+    <script>
+        function on(){
+        var a=document.querySelector("#one")
+        a.textContent="Life is short, enjoy every little moment."
+        }
+
+        //  onmouseover-when put cursor on 
+        function fun_name(){
+           alert("you moved the cursor on the button")
+        }
+
+        // onmousedown-when remove cursor
+        function gun_name(){
+            alert("you move cursor out of the button")
+        }
+
+        // onfocus-color
+        function styling(){
+            var b=document.querySelector("input")
+            b.style.backgroundColor="pink"
+        }
+
+        // onsubmit-submit form
+        function sub(){
+            alert("successfully submitted")
+        }
+
+        // onload--page loaded 
+        function loadhere(){
+            alert("page loaded successully")
+        }
+
+        // onchange
+       function tent(value){
+       alert("you entered :",value)
+        console.log("you enterd this:"+value)
+       }
+
+
+
+    </script>
+</body>
+</html>

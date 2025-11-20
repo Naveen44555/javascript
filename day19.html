@@ -7,8 +7,8 @@
 </head>
 <body>
     <p id="text">hii,hello</p>
-    <!-- <img src="./images.jpg" alt=""> -->
-    <button onclick="img()">click</button> 
+    <img src="./images.jpg" alt="">
+    <button disabled onclick="img()">click</button> 
 <!-- 
     <script>
         function img(){
@@ -23,8 +23,24 @@
     // var c=document.querySelector(".texthere")
     // c.style.color="blue"
 
-    var a=document.getElementById("text")
-    var b= a.setAttribute("class","")
+    // var a=document.getElementById("text")
+    // var b= a.setAttribute("class","texthere")
+    // var c=document.querySelector(".texthere")
+    // c.style.color = "red"
+
+    var img = document.querySelector("img")
+    var result = img.getAttribute("src")
+    console.log(result)
+
+    // removeAttribute
+    var btn=document.querySelector("button")
+    btn.removeAttribute("disabled")
+
+    var head1 = document.createElement("h1")
+    head1.innerHTML = "hi,hello"
+    document.body.appendchild(head1)
+
+    
 </script>
 </body>
 </html>

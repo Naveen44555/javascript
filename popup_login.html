@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signup Form</title>
+
+    <style>
+       /* PAGE BACKGROUND */
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background: linear-gradient(135deg, #6a11cb, #2575fc);
+    font-family: "Segoe UI", sans-serif;
+}
+
+/* BOXES CENTERED */
+.box1, .box2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* LEFT BOX IMAGE */
+.box1 {
+    width: 45%;
+}
+.box1 img {
+    width: 85%;
+    height: auto;
+    max-height: 600px;   /* Increased height */
+    object-fit: contain;
+    border-radius: 12px;
+    box-shadow: 0 15px 25px rgba(0,0,0,0.3);
+    transition: 0.3s ease;
+}
+
+
+/* IMAGE HOVER EFFECT */
+.box1 img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 20px 35px rgba(0,0,0,0.4);
+}
+
+/* RIGHT BOX */
+.box2 {
+    width: 45%;
+    transition: 0.3s ease;        /* Smooth animation */
+}
+
+/* BOX2 Hover Effect (Color Change + Glow) */
+.box2:hover {
+    transform: translateY(-8px);
+}
+
+/* GLASS FORM BOX */
+.inbox {
+    width: 70%;
+    padding: 30px;
+    border-radius: 14px;
+
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+
+    box-shadow: 0 15px 25px rgba(0,0,0,0.25);
+    transition: 0.3s ease;
+}
+
+/* FORM BOX Hover Effect */
+.inbox:hover {
+    background: rgba(255, 255, 255, 0.22);
+    box-shadow: 0 20px 35px rgba(0,0,0,0.35);
+    transform: translateY(-5px);
+}
+
+/* HEADING */
+.inbox h2 {
+    text-align: center;
+    color: white;
+    font-size: 36px;
+    font-weight: 600;
+    margin-bottom: 25px;
+}
+
+/* FORM */
+#formh {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.lbl {
+    font-size: 20px;
+    color: #ececec;
+    font-weight: 500;
+}
+
+/* INPUTS */
+#formh input {
+    height: 40px;
+    width: 100%;
+    font-size: 18px;
+    padding-left: 10px;
+    border-radius: 8px;
+    outline: none;
+    border: 1px solid #ccc;
+    transition: 0.25s ease;
+}
+
+/* INPUT FOCUS GLOW */
+#formh input:focus {
+    border-color: #6a11cb;
+    box-shadow: 0 0 10px rgba(255,255,255,0.6);
+    transform: scale(1.02);
+}
+
+/* BUTTON */
+#submit {
+    background: linear-gradient(135deg, #6a11cb, #2575fc);
+    color: white;
+    font-size: 20px;
+    height: 45px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+/* BUTTON HOVER */
+#submit:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.35);
+}
+
+/* -------------------- MEDIA QUERIES --------------------- */
+
+/* TABLET MODE */
+@media (max-width: 992px) {
+    body {
+        flex-direction: column;
+        height: auto;
+        padding: 30px 0;
+    }
+
+    .box1, .box2 {
+        width: 100%;
+    }
+
+    .box1 img {
+        width: 60%;
+    }
+
+    .inbox {
+        width: 80%;
+    }
+}
+
+/* MOBILE MODE */
+@media (max-width: 600px) {
+
+    .box1 img {
+        width: 90%;
+        max-height: 250px;
+    }
+
+    .inbox {
+        width: 90%;
+        padding: 20px;
+    }
+
+    .inbox h2 {
+        font-size: 28px;
+    }
+
+    .lbl {
+        font-size: 16px;
+    }
+
+    #formh input {
+        font-size: 16px;
+        height: 38px;
+    }
+
+    #submit {
+        height: 40px;
+        font-size: 18px;
+       
+    }
+}
+
+    </style>
+</head>
+
+<body>
+
+    <!-- LEFT IMAGE -->
+    <div class="box1">
+        <img src="./college pic.avif" alt="">
+    </div>
+
+    <!-- RIGHT FORM -->
+    <div class="box2">
+        <div class="inbox">
+            <h2>Signup Form</h2>
+
+            <form name="myform" onsubmit="return formvalidation()" id="formh">
+                
+                <label class="lbl">Enter Your Name :</label>
+                <input type="text" name="username" required>
+
+                <label class="lbl">Enter Your Email :</label>
+                <input type="email" name="email" required>
+
+                <label class="lbl">Create Password :</label>
+                <input type="password" name="create_password" required>
+
+                <label class="lbl">Confirm Password :</label>
+                <input type="password" name="confirm_password" required>
+
+                <input type="submit" value="Login" id="submit">
+            </form>
+        </div>
+    </div>
+
+    <!-- JS VALIDATION -->
+    <script>
+        function formvalidation() {
+            var name = document.myform.username.value;
+            var email = document.myform.email.value;
+            var create_password = document.myform.create_password.value;
+            var confirm_password = document.myform.confirm_password.value;
+
+            if (name.trim() == "") {
+                alert("Name required");
+                return false;
+            }
+
+            if (!email.includes("@")) {
+                alert("Email must contain @");
+                return false;
+            }
+
+            if (create_password.length >= 6 && confirm_password.length >= 6) {
+                if (create_password === confirm_password) {
+                    alert("Signed up successfully 😊");
+                    return true;
+                } else {
+                    alert("Passwords do not match! Re-enter.");
+                    return false;
+                }
+            } else {
+                alert("Password must be at least 6 characters");
+                return false;
+            }
+        }
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Amazon Order Process</title>
+    <style>
+        body{
+            font-family: Arial;
+            background:#f0f2f5;
+            padding:20px;
+        }
+        h1{
+            text-align:center;
+            color:#222;
+        }
+        #box{
+            width:40%;
+            margin:auto;
+            background:white;
+            padding:20px;
+            border-radius:15px;
+            box-shadow:0px 0px 20px rgba(0,0,0,0.2);
+        }
+        .step{
+            padding:15px;
+            margin:10px 0;
+            background:#acf2f7;
+            border-left:5px solid #1e9bae;
+            border-radius:10px;
+            font-size:18px;
+            opacity:0;
+            transition:0.5s;
+        }
+        .show{
+            opacity:1;
+        }
+    </style>
+</head>
+<body>
+
+<h1>🛒 Amazon Order Process</h1>
+
+<div id="box"></div>
+
+<script>
+function showMessage(msg){
+    let div = document.createElement("div");
+    div.className = "step";
+    div.innerHTML = msg;
+    document.getElementById("box").appendChild(div);
+
+    // animate
+    setTimeout(()=> div.classList.add("show"),100);
+}
+
+function open_app(callback){
+    setTimeout(()=>{
+        showMessage("📱 Open Amazon App");
+        callback();
+    },2000)
+}
+
+function choose_products(callback){
+    setTimeout(()=>{
+        showMessage("🛍️ Choose Products");
+        callback();
+    },2000)
+}
+
+function select_product(callback){
+    setTimeout(()=>{
+        showMessage("📦 Selected a Product");
+        callback();
+    },2000)
+}
+
+function order_product(callback){
+    setTimeout(()=>{
+        showMessage("🧾 Ordering Product");
+        callback();
+    },2000)
+}
+
+function make_payment(callback){
+    setTimeout(()=>{
+        showMessage("💳 Make Online/Offline Payment");
+        callback();
+    },1000)
+}
+
+function payment_success(callback){
+    setTimeout(()=>{
+        showMessage("🟢 Payment Successful");
+        callback();
+    },1000)
+}
+
+function wait_for_delivery(callback){
+    setTimeout(()=>{
+        showMessage("🚚 Wait for Delivery");
+        callback();
+    },1000)
+}
+
+function order_placed(){
+    setTimeout(()=>{
+        showMessage("🎉 Order Placed! Enjoy 😊 Stay Healthy 😍");
+    },1000)
+}
+
+// callback chain
+open_app(()=>{
+    choose_products(()=>{
+        select_product(()=>{
+            order_product(()=>{
+                make_payment(()=>{
+                    payment_success(()=>{
+                        wait_for_delivery(()=>{
+                            order_placed();
+                        })
+                    })
+                })
+            })
+        })
+    })
+});
+</script>
+
+</body>
+</html>

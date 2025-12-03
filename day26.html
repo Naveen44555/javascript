@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register Form</title>
+
+<style>
+    body{
+        margin: 0;
+        padding: 0;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: linear-gradient(135deg,#9ef301,#02ecd8);
+        font-family: Arial, sans-serif;
+    }
+
+    h1{
+        text-align:center;
+        margin-top:-20px;
+        margin-bottom:20px;
+        font-size:35px;
+    }
+
+    form{
+        background: white;
+        padding: 35px 25px;
+        width: 400px;
+        border-radius: 5px 40px;
+        box-shadow: 0 0 12px rgba(0,0,0,0.3);
+        font-size: 30px;
+    }
+
+    label{
+        font-weight: bold;
+        font-size: 18px;
+        margin-top: 12px;
+        margin-bottom: 5px;
+        display: block;
+    }
+
+    input, textarea, select{
+        width: 95%;
+        padding: 8px;
+        margin: 0;
+        border: 1px solid #4ad604;
+        border-radius: 20px 0px 10px 0px;
+        font-size: 19px;
+    }
+
+    textarea{
+        height: 70px;
+    }
+
+    .error-message{
+        font-size: 12px;
+        color: red;
+        height: 0px;
+        overflow: hidden;
+        margin: 0;
+        padding: 0;
+        display: block;
+        transition: height 0.2s ease;
+    }
+
+    .check-row{
+        display: flex;
+        align-items: center;
+        margin-top: 10px;
+    }
+
+    .check-row input{
+        width: 18px;
+        height: 18px;
+        margin-right: 8px;
+    }
+
+    .button-row{
+        display: flex;
+        justify-content: space-between;
+        margin-top: 20px;
+    }
+
+    input[type="submit"], input[type="reset"]{
+        width: 48%;
+        padding: 10px;
+        border: none;
+        border-radius: 15px;
+        background: #2575fc;
+        color: white;
+        font-size: 18px;
+        cursor: pointer;
+    }
+
+    input[type="reset"]{
+        background: #6a11cb;
+    }
+
+    input[type="submit"]:hover, input[type="reset"]:hover{
+        opacity: 0.85;
+    }
+
+    input:focus,
+    textarea:focus,
+    select:focus {
+        outline: none !important;
+        border-color: #aaa !important;
+        box-shadow: none !important;
+    }
+   
+
+    /* ⭐ Responsive Media Queries */
+    @media (max-width: 480px){
+        form{
+            width: 85%;
+            padding: 25px;
+            border-radius: 15px;
+        }
+        h1{
+            font-size: 28px;
+        }
+        input, textarea, select{
+            font-size: 16px;
+            width: 100%;
+        }
+        input[type="submit"], input[type="reset"]{
+            font-size: 16px;
+            width: 49%;
+        }
+    }
+</style>
+
+</head>
+<body>
+
+<form onsubmit="return formvalidation()">
+    <h1>Register Form</h1>
+
+    <label for="name">Name :</label>
+    <input type="text" id="name" placeholder="Enter Your Full Name">
+    <span id="name-error" class="error-message"></span>
+
+    <label for="email">Email :</label>
+    <input type="email" id="email" placeholder="eg:honey@gmail.com" autocomplete="off">
+    <span id="email-error" class="error-message"></span>
+
+    <label for="college">College :</label>
+    <textarea id="college" placeholder="College Full Name"></textarea>
+    <span id="college-error" class="error-message"></span>
+
+    <label for="course">Course :</label>
+    <select id="course">
+        <option value="">---- select options -----</option>
+        <option>java fullstack</option>
+        <option>python fullstack</option>
+        <option>data science</option>
+        <option>automation testing</option>
+        <option>machine learning</option>
+        <option>manual testing</option>
+    </select>
+    <span id="course-error" class="error-message"></span>
+
+    <label for="password">Password :</label>
+    <input type="password" id="password" autocomplete="new-password">
+    <span id="password-error" class="error-message"></span>
+
+    <div class="check-row">
+        <input type="checkbox" id="agree">
+        <label for="agree">Accept Terms and Conditions</label>
+    </div>
+    <span id="checkbox-error" class="error-message"></span>
+
+    <div class="button-row">
+        <input type="submit" value="Submit">
+        <input type="reset" value="Reset">
+    </div>
+</form>
+
+<script>
+function showError(id, message) {
+    const el = document.getElementById(id);
+    el.innerText = message;
+    el.style.height = "15px";
+}
+
+function hideError(id) {
+    const el = document.getElementById(id);
+    el.innerText = "";
+    el.style.height = "0px";
+}
+
+function formvalidation() {
+    let isValid = true;
+
+    const name = document.getElementById("name").value.trim();
+    if (name === "") { showError("name-error", "Name is required"); isValid = false; }
+    else hideError("name-error");
+
+    const password = document.getElementById("password").value.trim();
+    if (password === "") { showError("password-error", "Password is required"); isValid = false; }
+    else hideError("password-error");
+
+    const email = document.getElementById("email").value.trim();
+    if (email === "") { showError("email-error", "Email is required"); isValid = false; }
+    else hideError("email-error");
+
+    const college = document.getElementById("college").value.trim();
+    if (college === "") { showError("college-error", "College name is required"); isValid = false; }
+    else hideError("college-error");
+
+    const course = document.getElementById("course").value;
+    if (course === "") { showError("course-error", "Please choose a course"); isValid = false; }
+    else hideError("course-error");
+
+    const agree = document.getElementById("agree").checked;
+    if (!agree) { showError("checkbox-error", "You must accept terms"); isValid = false; }
+    else hideError("checkbox-error");
+
+    return isValid;
+}
+</script>
+
+</body>
+</html>

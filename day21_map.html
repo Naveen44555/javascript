@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>advanced array methods</title>
+</head>
+<body>
+    <p id="display">0</p>
+
+    <script>
+        // // ---advanced array methods
+        // //map 
+        let num1= [1,2,3,4,5]
+        let num2=num1.map((numbers)=>numbers*5)
+        console.log(num2)
+
+        // // filter
+        // let num3=[2,5,7,44,65,336,86,33,90,544,36,35]
+        // // let num4=num3.map((numbers)=>numbers>35)    //(12) [false, false, false, true, true, true, true, false, true, true, true, false]
+        //  let num4=num3.filter((numbers)=>numbers>35)
+        // console.log(num4)
+
+        // // reduce
+        // let num5=[3,6,3,7,33,9,88]
+        // let num6=num5.reduce((acc,cur)=>acc+cur,0)  //acc stores the step-by-step values
+        // console.log(num6)
+
+        // settimeout
+        // setTimeout(()=>console.log("hello good evening"),2000)
+
+        // setInterval
+        // setInterval(()=>console.log("honey is 2 years old"),1000)
+        
+        // // clearTimeout
+        // var clr = setTimeout(()=>console.log("hii"),2000)
+        // clearTimeout(clr)
+
+        // // clearInterval
+        // var count = 1;
+        // var set =setInterval(()=>{
+        // console.log("count:",count)
+        // count++;
+        // if (count>5){
+        //     clearInterval(set)
+        // }
+        // },2000)
+
+        // setTimeout(()=>console.log("hello"),2000)
+        // setInterval(()=>console.log("good morning"),2000)
+        // var clr = setTimeout(()=>console.log("honey"),2000)
+        // clearInterval(clr)
+
+        // var count=1
+        // var res=setInterval(()=>{
+        //     console.log("count:",count)
+        //     count++
+        //     if (count>5){
+        //         clearTimeout(res)
+        //     }
+        // },2000)
+
+
+        // // ---------------day2
+    // // --map
+    //     let a1=[1,2,3,4]
+    //     let a2 = a1.map((num)=>num*5)
+    //     console.log(a2)
+    //     console.log(a1)     //does not affect
+    //     // console.log(num)    //day21_map.html:61  Uncaught ReferenceError: num is not defined
+
+    // // filter()
+    // let a3=[2,5,25,78,43,33]
+    // let a4=a3.filter((num1)=>num1>33)
+    // console.log(a4)
+
+// 🔹 Part 1 — Tasks on map()
+// Task 1: Multiply Elements
+// Given an array of numbers, use map() to create a new array where each number is multiplied by 10.
+        let a5=[2,4,6,8]
+        let a6=a5.map((num3)=>num3*10)
+        console.log(a6)
+        //o/p- [20, 40, 60, 80]
+
+// Task 2: Extract Names
+// Given an array of objects:
+        let a7=[
+            {name:"Ram",age:20},
+            {name:"sita",age:22}
+        ]
+        let a8=a7.map(item=>item.name)  //map() collects the returned values into a new array
+        console.log(a8)
+       
+// Task 3: Square All Numbers
+// Given an array: [3, 5, 7, 9]
+//  Use map() to return all squared values.
+        let a9=[3,5,7,9]
+        let a10=a9.map((num)=>num**2)
+        console.log(a10)
+
+// 🔹 Part 2 — Tasks on filter()
+// Task 4: Filter Even Numbers
+// Given an array of numbers, use filter() to return only even numbers.
+        let a11=[3,5,30,44,9,1,8,4]
+        let a12=a11.filter((num)=>num%2==0)
+        console.log(a12)
+
+// Task 5: Students With Marks > 75
+        let a13=[
+            {name:"Arun",marks:80},
+            {name: "Ravi", marks: 60},
+            {name: "Kavi", marks: 90}
+        ];
+        let a14=a13.filter((m)=>m.marks>75)
+        console.log(a14)
+        // console.log(JSON.stringify(a14));   //[{"name":"Arun","marks":80},{"name":"Kavi","marks":90}]
+
+// Task 6: Filter Strings with Length > 5
+        var a15 = ["apple", "cat", "banana", "dog", "elephant"]
+        let a16=a15.filter((len)=>len.length>5)
+        console.log(a16)
+
+// 🔹 Part 3 — Tasks on reduce()
+// Task 7: Find Total Price
+        var count=0
+        var a18=[150,200,350,100];
+        const a19=a18.reduce((acc,cur)=>acc+cur,0)
+        console.log(a19)
+
+// Task 8: Count Total Characters
+        let a20=["js","react","node"]
+        let a21=a20.reduce((ac,char)=>ac+char.length,0)
+        console.log(a21)
+
+// 🔹 Part 4 — Tasks on Timing Functions
+// Task 9: Display “Hello World” after 3 seconds
+    // setTimeout(()=>console.log("hello world"),1000)
+
+// // Task 10: Display Numbers 1 to 10 Every Second
+//         count=1
+//        let c= setInterval(()=>{
+//         console.log("count:",count)
+//         count++
+//         if (count>10){
+//             clearTimeout(c)
+//         }
+//        },2000)
+
+// Task 11: Stop a Timer Before It Runs
+       let c=setTimeout(()=>console.log("hello guru"),5000)
+       clearTimeout(c)
+
+// Task 12: Live Clock
+// Create a digital clock that prints the current time every 1 second using setInterval().
+//  Add a button to stop the clock using clearInterval().  
+// t=1
+// let time=setInterval(()=>{
+//     console.log(t)
+//     t++
+//     if (t==60){
+//         clearInterval(time)
+//     }
+//     },1000)
+// clearInterval(time)
+
+// setInterval(()=>console.log("hhhjh"),1000)
+    // let count1 = 0;
+    // let timer = setInterval(() => {
+    //     console.log(count);
+    //     count1++;
+    // }, 1000);
+
+// Task 12: Live Clock
+
+
+
+
+
+    // setTimeout(()=>console.log("hello"),3000)
+    // setInterval(()=>console.log("good morning"),2000)
+    // let clr=setTimeout(()=>console.log("yes"),2000)
+    // clearTimeout(clr)
+
+        // count=1
+        // let c=setInterval(()=>{console.log("count:",count)
+        // count++
+        // if (count>5){
+        //     clearTimeout(c)
+        // }
+
+        // },2000)
+    
+
+
+
+
+
+    </script>
+</body>
+</html>

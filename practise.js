@@ -166,3 +166,32 @@
 // console.log(count)
 // }
 // vowels("aeiou")
+
+
+// -------------------------------------------
+
+// console.log("hello")
+// console.log(2+3+"4")    //"54",
+// console.log("3"+6+9)    // 369  it goes from left to right
+
+
+// {
+//   var a=10; //function scope or global
+//   let b=4;  //block scope
+//   const c=8  //block scope
+// }
+// console.log(a)  //10
+// // console.log(a,b,c)  //Refrence error
+
+
+// // // ------ //post-fix increment 
+// // let x=1;    
+// // console.log(x++)  //Use the current value first
+// //                 // Then increase x by 1
+// //                 // After printing, x becomes 2
+
+// // //--pre -increment
+// // let y=2;
+// console.log(++y)    //--pre-fix increment
+// // // console.log(++x)    //increase x first, then use
+

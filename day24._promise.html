@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products Displaying</title>
+</head>
+<body>
+   <div id="products" style="display:grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap:10px"></div>
+    <!-- grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+auto-fit → Automatically fits as many columns as possible depending on the screen width.
+minmax(250px, 1fr) → Each card must be at least 250px wide, and can grow to fill available space.
+gap: 10px; → Space between each card. -->
+<script>
+    async function fetchData(){ //async → Allows using await inside the function. This function will fetch data from the API.
+        let response = await fetch('https://fakestoreapi.com/products') //fetch(url) → Sends a request to the API.
+        let result = await response.json()  //await → Waits until API gives the response. Converts the raw response into JavaScript object / array.
+        // console.log(result)
+
+        let prod = document.getElementById('products')  
+        prod.innerHTML = "" //Removes previous content (if any) before adding new products.
+
+        result.forEach((product)=>{ //Loops through all products in the array.product means one product at a time.
+
+
+            prod.innerHTML += `
+            <div style="border:1px solid black; padding:10px; box-sizing:border-box">
+                <h1 style="font-size:18px">${product.title}</h1>
+                <img src="${product.image}" style="width:140px; display:block; margin:auto"/>
+                <h2 style="font-size:20px">Price : $ ${product.price}</h2>
+                <h3>${product.category}</h3>
+                <p>${product.description}</p>
+            </div>
+            `
+        })
+    }
+    fetchData();
+</script>
+
+</body>
+</html>

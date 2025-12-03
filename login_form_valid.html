@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form name="myform" onsubmit="return formvalidation()">
+       Name: <input type="text" name="username"> <br> <br>
+      Create Password: <input type="password" name="create_password"> <br> <br>
+       Confirm Password: <input type="password" name="confirm_password"> <br> <br>
+        <input type="submit" value="Login">
+    </form>
+
+    <script>
+        function formvalidation(){
+            var name = document.myform.username.value
+            var create_password = document.myform.create_password.value
+            var confirm_password= document.myform.confirm_password.value
+
+            if (name == null || name ==""){
+                alert("name required")
+                return false;
+            }
+            else if (create_password>=1 && confirm_password>=1){
+                if (create_password.length>=6 && confirm_password.length>=6){
+                    if (create_password == confirm_password ){
+                        alert("logged in successfully")
+                        return true;
+                    }
+                    else{
+                        alert("Create Password & confirm Password doesn't matched,re-enter password")
+                        return false;
+                    }
+                }
+                else if (create_password.length>=6 && confirm_password.length !=6){
+                        alert("---------Create Password & confirm Password doesn't matched,re-enter password")
+                }
+                else{
+                    alert("password required atleast 6 characters")
+                }
+            }
+            else{
+            alert("password is required to login")
+           }
+        }
+    </script>
+    
+</body>
+</html>
